@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const { validate } = require("../controllers/mainController");
 const { getData, writeData } = require("../utils/utils");
 
 router.put("/:id", validate("putAuthor"), async (req, res, next) => {
