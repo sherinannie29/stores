@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Winter Trees",
+      "author": "Sylvia",
+      "views": "80",
+      "reviews": "31"
+    },
+    {
+      "id": "6",
+      "title": "Becoming",
+      "author": "Obama",
+      "views": "45",
+      "reviews": "60"
+    },
+    {
+      "id": "3",
+      "title": "The Eye of the World",
+      "author": "Robert",
+      "views": "45",
+      "reviews": "60"
+    }
+  ],
+  "authors": [
+    { "id": "1", "first_name": "Sylvia ", "last_name": "Plath", "posts": "45" },
+    { "id": "2", "first_name": "Commerce", "last_name": "IQ", "posts": "45" }
+  ]
+}
