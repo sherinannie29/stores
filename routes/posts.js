@@ -11,6 +11,7 @@ router.get("", async (req, res, next) => {
 
     const sort = req.query._sort;
     const order = req.query._order;
+
     const searchKey = req.query.q;
 
     let data = await getData();
@@ -75,23 +76,21 @@ router.patch("/:id", async (req, res, next) => {
 
     if (postPos != null) {
       //null checked needed here as pos can be 0 which becomes falsy.
-     if(updateDetails.id && updateDetails.id != postId) {
-        throw new Error('Cannot modify id.')
-     } else {
-      const final = Object.keys(updateDetails).map(
-        (key) => (postToUpdate[0][key] = updateDetails[key])
-      );
-      posts.splice(postPos, 1, postToUpdate[0]);
+      if (updateDetails.id && updateDetails.id != postId) {
+        throw new Error("Cannot modify id.");
+      } else {
+        const final = Object.keys(updateDetails).map(
+          (key) => (postToUpdate[0][key] = updateDetails[key])
+        );
+        posts.splice(postPos, 1, postToUpdate[0]);
 
-      data = { ...data, posts };
-      writeData(data);
-      res.send(`Updated details successfully`);
-     }
-     
+        data = { ...data, posts };
+        writeData(data);
+        res.send(`Updated details successfully`);
+      }
     } else {
-      res.send('Record not found')
+      res.send("Record not found");
     }
-    
   } catch (error) {
     res.status(500);
     res.send(error.message);

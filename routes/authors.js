@@ -14,6 +14,7 @@ router.put("/:id", async (req, res, next) => {
       const authors = data["authors"];
       let authorPos = null;
 
+      //To find if the author exists
       const authorDetails = authors.filter((author, index) => {
         if (author.id === authorToAdd.id) {
           authorPos = index;
@@ -23,6 +24,7 @@ router.put("/:id", async (req, res, next) => {
 
       if (authorPos != null) {
         //null checked needed here as pos can be 0 which becomes falsy.
+
         if (authorDetails[0].id != addId)
           //If the author already exists ID cannot be modified.
           throw new Error("Cannot modify Id for the author.");
